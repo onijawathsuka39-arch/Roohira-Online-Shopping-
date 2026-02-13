@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roohira Online | Premium Bedsheets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span
+                    style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);">Roohira
+                    Online</span>
+            </a>
+
+            <nav class="flex gap-4 items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+
+                <div class="flex items-center gap-4 ml-4 pl-4 border-l border-gray-200">
+                    <a href="cart.html" class="nav-link cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-badge" class="cart-count">0</span>
+                    </a>
+
+                    <a href="login.html" id="login-link" class="btn btn-primary"
+                        style="padding: 0.5rem 1rem; font-size: 0.8rem;">Login</a>
+
+                    <div id="user-menu" style="display: none; position: relative;" class="group">
+                        <button class="flex items-center gap-2 nav-link"
+                            style="background:none; border:none; cursor:pointer;">
+                            <i class="fas fa-user"></i>
+                            <span style="font-weight: 500;">User</span>
+                        </button>
+                        <!-- Dropdown would be handled by css hover usually, or JS click -->
+                        <div style="position: absolute; right: 0; top: 100%; background: white; border-radius: 8px; box-shadow: var(--shadow-lg); padding: 0.5rem; min-width: 150px; display: none;"
+                            id="user-dropdown">
+                            <a href="profile.html"
+                                style="display: block; padding: 0.5rem; color: var(--text-dark); hover:color:var(--primary);">Profile</a>
+                            <button onclick="logout()"
+                                style="display: block; width: 100%; text-align: left; padding: 0.5rem; background: none; border: none; cursor: pointer; color: var(--text-dark);">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Wrap Yourself in <br><span style="color: var(--secondary);">Pure Luxury</span></h1>
+            <p>Discover the finest collection of bedsheets, designed for comfort and style.</p>
+            <a href="shop.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Shop
+                Collection</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-10">
+        <div class="container">
+            <div class="text-center mb-6">
+                <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Featured Collections</h2>
+                <div style="width: 60px; height: 4px; background: var(--primary); margin: 0 auto; border-radius: 2px;">
+                </div>
+                <p class="mt-4 text-gray-500">Handpicked favorites just for you.</p>
+            </div>
+
+            <div id="featured-products" class="grid grid-cols-3">
+                <!-- Products injected by JS -->
+            </div>
+
+            <div class="text-center mt-4" style="margin-top: 3rem;">
+                <a href="shop.html" class="btn btn-outline">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-10" style="background-color: var(--secondary-light);">
+        <div class="container">
+            <div class="grid grid-cols-3 text-center">
+                <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: var(--shadow);">
+                    <i class="fas fa-shipping-fast"
+                        style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Fast Delivery</h3>
+                    <p style="color: grey;">Island-wide delivery within 2-3 business days.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: var(--shadow);">
+                    <i class="fas fa-undo" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Easy Returns</h3>
+                    <p style="color: grey;">Hassle-free returns within 7 days.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: var(--shadow);">
+                    <i class="fas fa-star" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Premium Quality</h3>
+                    <p style="color: grey;">Guaranteed quality materials for best comfort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container grid grid-cols-4">
+            <div style="grid-column: span 2;">
+                <h2 style="color: var(--primary); margin-bottom: 1rem;">Roohira Online</h2>
+                <p style="color: grey; max-width: 300px;">Transform your bedroom into a sanctuary with our luxurious
+                    collection.</p>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 1rem;">Quick Links</h3>
+                <ul style="list-style: none; color: grey; line-height: 2;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 1rem;">Contact</h3>
+                <ul style="list-style: none; color: grey; line-height: 2;">
+                    <li><i class="fas fa-phone"></i> +94 71 443 3279</li>
+                    <li><i class="fas fa-envelope"></i> hello@roohira.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center" style="margin-top: 3rem; color: grey; font-size: 0.9rem;">
+            &copy; 2026 Roohira Online. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple User Menu Toggle
+        const userBtn = document.querySelector('#user-menu button');
+        const dropdown = document.getElementById('user-dropdown');
+        if (userBtn) {
+            userBtn.addEventListener('click', () => {
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+    </script>
+</body>
+
+</html>

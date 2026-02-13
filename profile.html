@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Roohira Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span
+                    style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);">Roohira
+                    Online</span>
+            </a>
+            <nav class="flex gap-4 items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-badge" class="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="container" id="profile-container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">My Profile</h1>
+
+            <div class="grid grid-cols-4 gap-8">
+                <!-- Sidebar -->
+                <div
+                    style="background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow); text-align: center; height: fit-content;">
+                    <div
+                        style="width: 80px; height: 80px; background: var(--secondary); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--primary);">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h2 id="profile-name" style="font-weight: bold; font-size: 1.25rem; margin-bottom: 0.25rem;">User
+                        Name</h2>
+                    <p id="profile-email" style="font-size: 0.875rem; color: grey; margin-bottom: 1rem;">
+                        email@example.com</p>
+                    <button onclick="logout()" class="btn btn-outline" style="width: 100%;">Logout</button>
+                </div>
+
+                <!-- Content -->
+                <div style="grid-column: span 3;">
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                        <h2
+                            style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
+                            Order History</h2>
+                        <div id="order-history">
+                            <!-- Orders injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

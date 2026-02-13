@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Roohira Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span
+                    style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);">Roohira
+                    Online</span>
+            </a>
+            <nav class="flex gap-4 items-center">
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-badge" class="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="container" id="product-detail-container">
+            <div class="grid grid-cols-2 bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+
+                <!-- Image Section -->
+                <div class="p-8 flex items-center justify-center bg-gray-50">
+                    <img id="detail-image" src="" alt="Product Image"
+                        style="width: 100%; max-width: 400px; border-radius: 1rem; box-shadow: var(--shadow-lg);">
+                </div>
+
+                <!-- Details Section -->
+                <div class="p-12 flex flex-col justify-center">
+                    <span id="detail-category"
+                        class="text-xs uppercase tracking-wider text-primary font-semibold mb-2 bg-secondary/30 w-fit px-2 py-1 rounded">Category</span>
+                    <h1 id="detail-name" class="text-4xl font-bold mb-4 font-serif text-gray-900">Product Name</h1>
+
+                    <div class="flex items-center gap-4 mb-6">
+                        <span id="detail-price" class="text-3xl font-bold text-primary">Rs. 0</span>
+                        <div class="text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-400 ml-1">(4.5)</span>
+                        </div>
+                    </div>
+
+                    <p id="detail-desc" class="text-gray-600 mb-8 leading-relaxed">Description goes here...</p>
+
+                    <div class="mb-8">
+                        <span id="detail-stock" class="font-medium text-green-600">In Stock</span>
+                    </div>
+
+                    <div class="flex gap-4 items-center pt-8 border-t border-gray-100">
+                        <div class="quantity-control px-4 py-2 bg-gray-100 border-none">
+                            <button onclick="document.getElementById('qty-input').stepDown()"
+                                class="qty-btn bg-transparent"><i class="fas fa-minus text-xs"></i></button>
+                            <input type="number" id="qty-input" value="1" min="1" max="10"
+                                class="qty-display bg-transparent border-none text-center focuses:ring-0"
+                                style="width: 40px;">
+                            <button onclick="document.getElementById('qty-input').stepUp()"
+                                class="qty-btn bg-transparent"><i class="fas fa-plus text-xs"></i></button>
+                        </div>
+
+                        <button id="add-to-cart-btn"
+                            class="btn btn-primary flex-grow py-3 flex items-center justify-center gap-2 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

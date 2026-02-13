@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Roohira Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span
+                    style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);">Roohira
+                    Online</span>
+            </a>
+            <nav class="flex gap-4 items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link active" style="color: var(--primary);">Shop</a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-badge" class="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Shop Collection</h1>
+
+            <div id="category-filters" class="filter-tabs">
+                <!-- Filters injected by JS -->
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-3 product-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-center text-gray-500 text-sm">
+            &copy; 2026 Roohira Online. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

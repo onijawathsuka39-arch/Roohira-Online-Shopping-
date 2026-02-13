@@ -24,17 +24,17 @@ const products = [
     {
         id: 3,
         name: 'Classic White Cotton',
-        price: 1500,
+        price: 3500,
         description: 'Timeless elegance with our classic white cotton bedsheet. High thread count for durability and softness.',
         size: 'Double',
         category: 'Plain',
         image: 'https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2069&auto=format&fit=crop',
-        stock: 30
+        stock: 2
     },
     {
         id: 4,
         name: 'Kids Adventure Theme',
-        price: 1800,
+        price: 450,
         description: 'Fun and adventurous theme for your little ones. Bright colors and durable fabric suitable for kids rooms.',
         size: 'Single',
         category: 'Kids',
@@ -443,3 +443,4 @@ function showToast(message, type = 'success') {
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
+

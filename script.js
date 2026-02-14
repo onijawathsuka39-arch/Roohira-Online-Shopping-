@@ -7,8 +7,13 @@ const products = [
         price: 3500,
         description: 'Experience the ultimate comfort with our premium silk rose bedsheet. Perfect for creating a romantic and elegant atmosphere in your bedroom.',
         size: 'King',
+        material: '100% Silk',
         category: 'Luxury',
-        image: 'https://images.unsplash.com/photo-1522771753035-0a153950c6f2?q=80&w=2069&auto=format&fit=crop',
+        images: [
+            'https://images.unsplash.com/photo-1522771753035-0a153950c6f2?q=80&w=2069&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=2070&auto=format&fit=crop'
+        ],
         stock: 20
     },
     {
@@ -17,28 +22,41 @@ const products = [
         price: 2800,
         description: 'A beautiful floral pattern quilt set that brings the freshness of spring into your home. Soft cotton material for a cozy sleep.',
         size: 'Queen',
+        material: 'Cotton Blend',
         category: 'Floral',
-        image: 'https://images.unsplash.com/photo-1595188800160-5a3962646c75?q=80&w=2070&auto=format&fit=crop',
+        images: [
+            'https://images.unsplash.com/photo-1595188800160-5a3962646c75?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1635739066103-ba956461994a?q=80&w=2070&auto=format&fit=crop'
+        ],
         stock: 15
     },
     {
         id: 3,
         name: 'Classic White Cotton',
-        price: 3500,
+        price: 1500,
         description: 'Timeless elegance with our classic white cotton bedsheet. High thread count for durability and softness.',
         size: 'Double',
+        material: 'Egyptian Cotton',
         category: 'Plain',
-        image: 'https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2069&auto=format&fit=crop',
-        stock: 2
+        images: [
+            'https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2069&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1617325247661-675ab4b64ae8?q=80&w=2071&auto=format&fit=crop'
+        ],
+        stock: 30
     },
     {
         id: 4,
         name: 'Kids Adventure Theme',
-        price: 450,
+        price: 1800,
         description: 'Fun and adventurous theme for your little ones. Bright colors and durable fabric suitable for kids rooms.',
         size: 'Single',
+        material: 'Polyester Microfiber',
         category: 'Kids',
-        image: 'https://images.unsplash.com/photo-1629949009765-4ef64b633a57?q=80&w=2059&auto=format&fit=crop',
+        images: [
+            'https://images.unsplash.com/photo-1629949009765-4ef64b633a57?q=80&w=2059&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1632059032733-0c464402660d?q=80&w=2070&auto=format&fit=crop'
+        ],
         stock: 25
     },
     {
@@ -47,8 +65,12 @@ const products = [
         price: 4200,
         description: 'Add a touch of gold to your bedroom with this exquisite duvet cover. Matches perfectly with our luxury collection.',
         size: 'King',
+        material: 'Satin',
         category: 'Luxury',
-        image: 'https://images.unsplash.com/photo-1616627547584-bf28cee262db?q=80&w=2070&auto=format&fit=crop',
+        images: [
+            'https://images.unsplash.com/photo-1616627547584-bf28cee262db?q=80&w=2070&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1618377382555-d3680e908646?q=80&w=2069&auto=format&fit=crop'
+        ],
         stock: 10
     },
     {
@@ -57,8 +79,12 @@ const products = [
         price: 2200,
         description: 'Soft pastel pink sheets to create a serene and calming environment. Matches our brand colors perfectly.',
         size: 'Queen',
+        material: 'Bamboo Fiber',
         category: 'Plain',
-        image: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1992&auto=format&fit=crop',
+        images: [
+            'https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1992&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1510134446-3dc9a716eb3d?q=80&w=2070&auto=format&fit=crop'
+        ],
         stock: 18
     }
 ];
@@ -80,7 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('checkout-form')) loadCheckout();
     if (document.getElementById('login-form')) initLogin();
     if (document.getElementById('signup-form')) initSignup();
-    if (document.getElementById('profile-container')) loadProfile();
+    if (document.getElementById('profile-container')) {
+        loadProfile();
+        initChangePassword();
+    }
 });
 
 // --- UI Updates ---
@@ -161,7 +190,7 @@ function createProductCard(product) {
     <div class="product-card">
         <div class="product-image">
             <a href="product.html?id=${product.id}">
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${product.images[0]}" alt="${product.name}">
             </a>
             <div class="product-actions">
                 <button onclick="addToCart(${product.id})" class="action-btn" title="Add to Cart"><i class="fas fa-shopping-cart"></i></button>
@@ -193,11 +222,15 @@ function loadProductDetails() {
     }
 
     // Populate Details
-    document.getElementById('detail-image').src = product.image;
+    document.getElementById('detail-image').src = product.images[0];
     document.getElementById('detail-category').textContent = product.category;
     document.getElementById('detail-name').textContent = product.name;
     document.getElementById('detail-price').textContent = `Rs. ${product.price.toLocaleString()}`;
     document.getElementById('detail-desc').textContent = product.description;
+
+    // New fields
+    document.getElementById('detail-size').textContent = product.size;
+    document.getElementById('detail-material').textContent = product.material;
 
     const stockStatus = document.getElementById('detail-stock');
     if (product.stock > 0) {
@@ -209,6 +242,16 @@ function loadProductDetails() {
         document.getElementById('add-to-cart-btn').disabled = true;
     }
 
+    // Render Thumbnails
+    const thumbContainer = document.getElementById('thumbnail-container');
+    if (product.images.length > 1) {
+        thumbContainer.innerHTML = product.images.slice(0, 3).map((img, index) => `
+            <img src="${img}" class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeImage('${img}', this)">
+        `).join('');
+    } else {
+        thumbContainer.style.display = 'none';
+    }
+
     // Add event listener to Add Cart button
     const btn = document.getElementById('add-to-cart-btn');
     btn.onclick = () => {
@@ -217,16 +260,31 @@ function loadProductDetails() {
     };
 }
 
+function changeImage(src, element) {
+    document.getElementById('detail-image').src = src;
+
+    // Toggle active class
+    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+    element.classList.add('active');
+}
+
 // --- Cart Logic ---
 
 function addToCart(id, qty = 1) {
     const product = products.find(p => p.id === id);
+    // Use first image for cart display
+    const cartItem = {
+        ...product,
+        image: product.images[0],
+        qty
+    };
+
     const existingItem = cart.find(x => x.id === id);
 
     if (existingItem) {
         existingItem.qty += qty;
     } else {
-        cart.push({ ...product, qty });
+        cart.push(cartItem);
     }
 
     localStorage.setItem('roohira_cart', JSON.stringify(cart));
@@ -332,13 +390,25 @@ function placeOrder(e) {
     const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
     const orderItemsText = cart.map(item => `${item.name} x ${item.qty} - Rs ${item.price}`).join('%0A');
 
-    const message = `Hello Roohira Online,%0AI would like to place an order.%0A%0ACustomer Details:%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}, ${city}%0A%0AOrder Items:%0A${orderItemsText}%0A%0ATotal: Rs ${subtotal}%0A%0AThank you.`;
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const dateStr = `${day}${month}${year}`;
+
+    // Increment local order counter
+    let orderCount = parseInt(localStorage.getItem('roohira_order_count') || '0') + 1;
+    localStorage.setItem('roohira_order_count', orderCount.toString());
+    const sequence = String(orderCount).padStart(3, '0');
+
+    const orderId = `ORD-RO-${dateStr}-${sequence}`;
+    const message = `Hello Roohira Online,%0AI would like to place an order.%0A%0AOrder ID: ${orderId}%0A%0ACustomer Details:%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}, ${city}%0A%0AOrder Items:%0A${orderItemsText}%0A%0ATotal: Rs ${subtotal}%0A%0AThank you.`;
 
     // Save order to local history (mock)
     if (user) {
         const orders = JSON.parse(localStorage.getItem(`roohira_orders_${user.email}`)) || [];
         orders.push({
-            id: Date.now(),
+            id: orderId,
             date: new Date().toISOString(),
             total: subtotal,
             items: cart
@@ -358,7 +428,10 @@ function placeOrder(e) {
 // --- Auth ---
 
 function initLogin() {
-    document.getElementById('login-form').onsubmit = (e) => {
+    const form = document.getElementById('login-form');
+    if (!form) return;
+
+    form.onsubmit = (e) => {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -377,7 +450,10 @@ function initLogin() {
 }
 
 function initSignup() {
-    document.getElementById('signup-form').onsubmit = (e) => {
+    const form = document.getElementById('signup-form');
+    if (!form) return;
+
+    form.onsubmit = (e) => {
         e.preventDefault();
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
@@ -390,6 +466,39 @@ function initSignup() {
 
         showToast('Account Created!', 'success');
         setTimeout(() => window.location.href = 'index.html', 1000);
+    };
+}
+
+function initChangePassword() {
+    const form = document.getElementById('change-password-form');
+    if (!form) return;
+
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        const currentPass = document.getElementById('current-password').value;
+        const newPass = document.getElementById('new-password').value;
+        const confirmPass = document.getElementById('confirm-password').value;
+
+        if (!user) return; // Should not happen if on profile page
+
+        const storedUser = JSON.parse(localStorage.getItem(`roohira_user_${user.email}`));
+
+        if (storedUser.password !== currentPass) {
+            showToast('Incorrect current password', 'error');
+            return;
+        }
+
+        if (newPass !== confirmPass) {
+            showToast('New passwords do not match', 'error');
+            return;
+        }
+
+        storedUser.password = newPass;
+        localStorage.setItem(`roohira_user_${user.email}`, JSON.stringify(storedUser));
+        localStorage.setItem('roohira_user', JSON.stringify(storedUser)); // Update session
+
+        showToast('Password updated successfully!', 'success');
+        form.reset();
     };
 }
 
@@ -443,4 +552,3 @@ function showToast(message, type = 'success') {
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
-
